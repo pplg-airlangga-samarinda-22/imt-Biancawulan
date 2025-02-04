@@ -80,6 +80,11 @@ class Ui_MainWindow(object):
         try:
             tinggi_cm = float(self.Tinggi_Badan.text())
             berat_kg = float(self.Berat_Badan.text())
+
+            if tinggi_cm <= 0 or berat_kg <= 0:
+                self.Hasil_BMI.setText("Masukkan angka lebih besar dari 0 untuk berat dan tinggi badan.")
+                return
+
             tinggi_m = tinggi_cm / 100  # Konversi ke meter
             bmi = berat_kg / (tinggi_m ** 2)
 
